@@ -7,8 +7,8 @@ import streamlit as st
 import numpy as np
 import sklearn
 
-from ydata_profiling import ProfileReport
-from streamlit_pandas_profiling import st_profile_report
+# from ydata_profiling import ProfileReport
+# from streamlit_pandas_profiling import st_profile_report
 
 st.set_page_config(
     page_title="Healthcare Clinic Revenue Dashboard 🏥",
@@ -33,6 +33,10 @@ patients = pd.read_csv("patients.csv")
 appointments = pd.read_csv("appointments.csv")
 clinics = pd.read_csv("clinics.csv")
 
+appt_patient = appointments.merge(patients, on="patient_id", how="left")
+df = appt_patient.merge(clinics, on="clinic_id", how="left")
+
+df.head()  
 
 ## Step 02 - Load dataset
 if page == "Introduction 📘":
@@ -63,10 +67,7 @@ if page == "Introduction 📘":
     else:
         st.warning("⚠️ you have missing values")
 
-    appt_patient = appointments.merge(patients, on="patient_id", how="left")
-    df = appt_patient.merge(clinics, on="clinic_id", how="left")
-
-    df.head()   
+     
 
     st.markdown("##### 📈 Summary Statistics")
     if st.button("Show Describe Table"):
@@ -88,17 +89,7 @@ elif page == "Visualization 📊":
 
     with tab2:
         st.subheader("Line Chart")
-        no_show_by_clinic = full_data.groupby("clinic_location")["no_show_flag"].mean().reset_index()
-        no_show_by_clinic.rename(columns={"no_show_flag":"no_show_rate"}, inplace=True)
-
-        plt.figure(figsize=(10,5))
-        sns.barplot(data=no_show_by_clinic, x='clinic_location', y='no_show_rate')
-        plt.title("No-Show Rate by Clinic", color="white", fontsize=16)
-        plt.ylabel("No-show Rate")
-        plt.xlabel("Clinic")
-        plt.show()
-        
-        # st.line_chart(df[[col_x,col_y]].sort_values(by=col_x),use_container_width=True)
+        st.line_chart(df[[col_x,col_y]].sort_values(by=col_x),use_container_width=True)
 
 
     with tab3:
@@ -124,7 +115,7 @@ elif page == "Automated Report 📑":
 
 elif page == "Prediction":
     st.subheader("04 Prediction with Linear Regression")
-    df2 = pd.read_csv("housing.csv")
+    df2 = df
     ## Data Preprocessing
 
     ### removing missing values 
