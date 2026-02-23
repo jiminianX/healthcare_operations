@@ -1,0 +1,9 @@
+clinic_id,clinic_location,city,monthly_fixed_cost,number_of_doctors,avg_daily_capacity,monthly_marketing_spend
+1,Clinic_1,Sharjah,204886,5,71,38942
+2,Clinic_2,Doha,287337,7,117,77001
+3,Clinic_3,Dubai,363458,4,81,38431
+4,Clinic_4,Sharjah,318266,6,103,22747
+5,Clinic_5,Sharjah,237498,4,84,78319
+6,Clinic_6,Doha,262727,6,108,79150
+7,Clinic_7,Dubai,276324,7,86,20189
+8,Clinic_8,Dubai,325203,3,118,39118
