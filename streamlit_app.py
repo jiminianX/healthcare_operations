@@ -175,7 +175,7 @@ elif page == "Prediction":
     ax.scatter(y_test,predictions,alpha=0.5)
     ax.plot([y_test.min(),y_test.max()],
            [y_test.min(),y_test.max() ],"--r",linewidth=2)
-    ax.set_xlabel("Actual")
-    ax.set_xlabel("Predicted")
+    ax.set_xlabel("Actual Value")
+    ax.set_xlabel("Predicted Value")
     ax.set_title("Actual vs Predicted")
     st.pyplot(fig)
