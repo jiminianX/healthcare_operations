@@ -7,7 +7,8 @@ import streamlit as st
 import numpy as np
 import sklearn
 
-# from ydata_profiling import ProfileReport
+from ydata_profiling import ProfileReport
+from streamlit.components.v1 import html
 # from streamlit_pandas_profiling import st_profile_report
 
 st.set_page_config(
@@ -53,6 +54,7 @@ if page == "Introduction 📘":
     missing_patients = patients.isnull().sum()
     missing_appointments = appointments.isnull().sum()
     missing_clinics = clinics.isnull().sum()
+
     st.write(missing_patients)
     st.write(missing_appointments)
     st.write(missing_clinics)
@@ -106,11 +108,11 @@ elif page == "Automated Report 📑":
     st.subheader("03 Automated Report")
     if st.button("Generate Report"):
         with st.spinner("Generating report..."):
-            profile = ProfileReport(df,title="California Housing Report",explorative=True,minimal=True)
-            st_profile_report(profile)
+            profile = ProfileReport(df,title="Clinic Revenue Report",explorative=True,minimal=True)
+            html(profile.to_html(), height=1000)
 
         export = profile.to_html()
-        st.download_button(label="📥 Download full Report",data=export,file_name="california_housing_report.html",mime='text/html')
+        st.download_button(label="📥 Download full Report",data=export,file_name="clinic_revenue_report.html",mime='text/html')
 
 
 elif page == "Prediction":
