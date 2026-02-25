@@ -25,7 +25,7 @@ st.set_page_config(
 
 ## Step 01 - Setup
 st.sidebar.title("Healthcare Clinics 🏥")
-page = st.sidebar.selectbox("Select Page",["Business Case 📘","Visualization 📊", "Automated Report 📑", "Prediction", "Insights and Recommendations 🧠"])
+page = st.sidebar.selectbox("Select Page",["Business Case 📘","Visualization 📊", "Prediction", "Insights and Recommendations 🧠"])
 
 
 #st.video("video.mp4")
@@ -165,19 +165,19 @@ elif page == "Visualization 📊":
         ax4.set_xlabel("Clinic")
         st.pyplot(fig4)
 
-elif page == "Automated Report 📑":
-    st.subheader("03 Automated Report")
-    if st.button("Generate Report"):
-        with st.spinner("Generating report..."):
-            profile = ProfileReport(df,title="Clinic Revenue Report",explorative=True,minimal=True)
-            html(profile.to_html(), height=1400)
+# elif page == "Automated Report 📑":
+#     st.subheader("03 Automated Report")
+#     if st.button("Generate Report"):
+#         with st.spinner("Generating report..."):
+#             profile = ProfileReport(df,title="Clinic Revenue Report",explorative=True,minimal=True)
+#             html(profile.to_html(), height=1400)
 
-        export = profile.to_html()
-        st.download_button(label="📥 Download full Report",data=export,file_name="clinic_revenue_report.html",mime='text/html')
+#         export = profile.to_html()
+#         st.download_button(label="📥 Download full Report",data=export,file_name="clinic_revenue_report.html",mime='text/html')
 
 
 elif page == "Prediction":
-    st.subheader("04 Prediction with Linear Regression")
+    st.subheader("03 Prediction with Linear Regression")
     df2 = df
     ## Data Preprocessing
 
