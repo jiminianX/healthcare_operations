@@ -7,7 +7,7 @@ import streamlit as st
 import numpy as np
 import sklearn
 
-from ydata_profiling import ProfileReport
+# from ydata_profiling import ProfileReport
 from streamlit.components.v1 import html
 
 from sklearn.linear_model import LinearRegression
