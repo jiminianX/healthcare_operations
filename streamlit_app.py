@@ -25,7 +25,7 @@ st.set_page_config(
 
 ## Step 01 - Setup
 st.sidebar.title("Healthcare Clinics 🏥")
-page = st.sidebar.selectbox("Select Page",["Business Case 📘","Visualization 📊", "Automated Report 📑", "Prediction"])
+page = st.sidebar.selectbox("Select Page",["Business Case 📘","Visualization 📊", "Automated Report 📑", "Prediction", "Insights and Recommendations 🧠"])
 
 
 #st.video("video.mp4")
@@ -239,3 +239,19 @@ elif page == "Prediction":
     ax.set_ylabel("Predicted Value")
     ax.set_title("Actual vs Predicted")
     st.pyplot(fig)
+
+elif page == "Insights and Recommendations 🧠":
+    st.subheader("05 Insights and Recommendations")
+    st.markdown("""
+    ## Key Insights
+
+    1. 
+    2. 
+    3. 
+
+    ## Recommendations
+
+    1. 
+    2. 
+    3. 
+    """)
